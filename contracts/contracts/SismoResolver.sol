@@ -18,7 +18,7 @@ contract SismoResolver is SismoConnect, IResolver {
     address private immutable _owner;
     bytes16 private immutable _sismoGroupId;
 
-    constructor(address settlement, bytes16 sismoAppId, bytes sismoGroupId) SismoConnect(sismoAppId) {
+    constructor(address settlement, bytes16 sismoAppId, bytes16 sismoGroupId) SismoConnect(sismoAppId) {
         _settlement = settlement;
         _owner = msg.sender;
         _sismoGroupId = sismoGroupId;

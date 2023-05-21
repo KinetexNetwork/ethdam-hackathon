@@ -6,7 +6,10 @@ import "hardhat-gas-reporter"
 import "hardhat-abi-exporter"
 import 'dotenv/config';
 
-const KX_EMULATION_RPC_URL = process.env.KX_EMULATION_RPC_URL || '';
+const MAINNET_RPC_URL = process.env.MAINNET_RPC_URL || '';
+const FORK_RPC_URL = process.env.FORK_RPC_URL || '';
+const SCROLL_RPC_URL = process.env.SCROLL_RPC_URL || '';
+
 
 const EMPTY_PRIVATE_KEY = '0000000000000000000000000000000000000000000000000000000000000000';
 const DEPLOYER_PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY || EMPTY_PRIVATE_KEY;
@@ -30,9 +33,19 @@ const config: HardhatUserConfig = {
   networks: {
     ethereum: {
       chainId: 1,
-      url: KX_EMULATION_RPC_URL,
+      url: MAINNET_RPC_URL,
       accounts: [DEPLOYER_PRIVATE_KEY, SELLER_PRIVATE_KEY, BUYER_PRIVATE_KEY],
     },
+    fork: {
+      chainId: 1,
+      url: FORK_RPC_URL,
+      accounts: [DEPLOYER_PRIVATE_KEY, SELLER_PRIVATE_KEY, BUYER_PRIVATE_KEY],
+    },
+    scroll: {
+      chainId: 534353,
+      url: SCROLL_RPC_URL,
+      accounts: [DEPLOYER_PRIVATE_KEY, SELLER_PRIVATE_KEY, BUYER_PRIVATE_KEY],
+    }
   },
   gasReporter: {
     enabled: true,

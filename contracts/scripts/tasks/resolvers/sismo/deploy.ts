@@ -16,12 +16,12 @@ export const resolverSismoDeploy = async (
   beginTask();
 
   await operation({
-    title: 'Deploy NFTResolver',
+    title: 'Deploy SismoResolver',
     env,
     mode: args.dry ? 'dry-run' : 'run',
     transaction: async () => {
       const data = await getDeployContractData({
-        contractName: 'NFTResolver',
+        contractName: 'SismoResolver',
         constructorParams: [
           getNetworkConfig(env.network.name).oneInchSettlement,
           process.env.SISMO_APP_ID,

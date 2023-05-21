@@ -10,5 +10,19 @@
         "oneInchSettlement": "0xa88800cd213da5ae406ce248380802bd53b47647",
         "oneInchRouter": "0x1111111254eeb25477b68fb85ed929f73a960582",
         "USDC": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    },
+    "fork": {
+        "name": "ethereum",
+        "chainId": 1,
+        "oneInchSettlement": "0xa88800cd213da5ae406ce248380802bd53b47647",
+        "oneInchRouter": "0x1111111254eeb25477b68fb85ed929f73a960582",
+        "USDC": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    },
+    "scroll": {
+        "name": "scroll",
+        "chainId": 534353,
+        "oneInchSettlement": "0xae8F4252f421eE77442d6C23F72A58B77AfA8267",
+        "oneInchRouter": "0xb7446D892BE9c21480B6b41CF54Ec7eC4C318f27",
+        "USDC": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
     }
 }
