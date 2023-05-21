@@ -24,7 +24,8 @@ export const resolverSismoDeploy = async (
         contractName: 'NFTResolver',
         constructorParams: [
           getNetworkConfig(env.network.name).oneInchSettlement,
-          '0x938ed37c644bbd9313e98cc87f40df21'
+          process.env.SISMO_APP_ID,
+          process.env.SISMO_GROUP_ID
         ],
         env,
       });

@@ -7,9 +7,8 @@ import "./interfaces/IResolver.sol";
 import "@1inch/solidity-utils/contracts/libraries/SafeERC20.sol";
 import { SismoConnect, ClaimRequest } from "@sismo-core/sismo-connect-solidity/contracts/libs/sismo-connect/SismoConnectLib.sol";
 
-contract NFTResolver is SismoConnect, IResolver {
+contract SismoResolver is SismoConnect, IResolver {
     error OnlySettlement();
-    error InvalidResolver();
 
     using Decoder for bytes;
     using SafeERC20 for IERC20;
@@ -17,17 +16,18 @@ contract NFTResolver is SismoConnect, IResolver {
 
     address private immutable _settlement;
     address private immutable _owner;
+    bytes16 private immutable _sismoGroupId;
 
-    constructor(address settlement, bytes16 appId) SismoConnect(appId) {
+    constructor(address settlement, bytes16 sismoAppId, bytes sismoGroupId) SismoConnect(sismoAppId) {
         _settlement = settlement;
         _owner = msg.sender;
+        _sismoGroupId = sismoGroupId;
     }
 
     function resolveOrders(address resolver, bytes calldata tokensAndAmounts, bytes calldata data) external {
         if (msg.sender != _settlement) revert OnlySettlement();
-        if (resolver != tx.origin) revert InvalidResolver();
 
-        ClaimRequest memory claim = buildClaim({groupId: 0x37a0c6dca70ff60654675e604b258a48});
+        ClaimRequest memory claim = buildClaim({groupId: _sismoGroupId});
 
         verify({
             responseBytes: data,
