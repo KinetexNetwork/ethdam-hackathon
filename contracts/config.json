@@ -1,0 +1,14 @@
+{
+    "hardhat": {
+        "name": "hardhat",
+        "chainId": 31337,
+        "oneInchSettlement": "0x"
+    },
+    "ethereum": {
+        "name": "ethereum",
+        "chainId": 1,
+        "oneInchSettlement": "0xa88800cd213da5ae406ce248380802bd53b47647",
+        "oneInchRouter": "0x1111111254eeb25477b68fb85ed929f73a960582",
+        "USDC": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    }
+}
